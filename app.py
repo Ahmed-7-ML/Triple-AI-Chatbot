@@ -34,9 +34,10 @@ if user_input:
 
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            answer, confidence = chat(user_input=user_input, domain=domain)
+            # answer, confidence = chat(user_input=user_input, domain=domain)
+            answer = chat(user_input=user_input, domain=domain)
             st.markdown(answer)
-            st.caption(f"🧠 Confidence: **{confidence.capitalize()}**")
+            # st.caption(f"🧠 Confidence: **{confidence.capitalize()}**")
     
     st.session_state.messages.append({
         "role": "assistant",

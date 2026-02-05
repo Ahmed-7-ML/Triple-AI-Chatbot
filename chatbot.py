@@ -76,4 +76,4 @@ def chat(user_input, domain="Machine Learning"):
         # "format_instructions": parser.get_format_instructions()
     })
 
-    return response.answer, response.confidence
+    return response # .answer, response.confidence
