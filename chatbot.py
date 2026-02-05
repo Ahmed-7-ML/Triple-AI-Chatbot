@@ -1,6 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain_groq import ChatGroq
-from langchain_core.output_parsers import PydanticOutputParser
+from langchain_core.output_parsers import StrOutputParser  # PydanticOutputParser
 from pydantic import BaseModel, Field
 from typing import Literal
 # from langchain_core.runnables import RunnablePassthrough
@@ -12,13 +12,15 @@ load_dotenv()
 groq_api_key = os.getenv("GROQ_API_KEY")
 
 # ---> Output Schema <---
-class ChatResponse(BaseModel):
-    answer: str = Field(
-        description='A complete, well-structured answer with bullet points and examples when applicable. If the question is rejected, explain politely why')
-    confidence: Literal["low", "medium", "high"]
+# class ChatResponse(BaseModel):
+#     answer: str = Field(
+#         description='A complete, well-structured answer with bullet points and examples when applicable. If the question is rejected, explain politely why')
+#     confidence: Literal["low", "medium", "high"]
 
 
-parser = PydanticOutputParser(pydantic_object=ChatResponse)
+# parser = PydanticOutputParser(pydantic_object=ChatResponse)
+
+parser = StrOutputParser()
 
 # ---> Prompt <---
 system_prompt = """
@@ -48,7 +50,7 @@ BOUNDARIES:
 chat_prompt = ChatPromptTemplate.from_messages([
     SystemMessagePromptTemplate.from_template(system_prompt),
     HumanMessagePromptTemplate.from_template("User Question:- {question}"),
-    SystemMessagePromptTemplate.from_template("{format_instructions}")
+    # SystemMessagePromptTemplate.from_template("{format_instructions}")
 ])
 
 # ---> Model <---
@@ -71,7 +73,7 @@ def chat(user_input, domain="Machine Learning"):
     response = chain.invoke({
         'domain': domain,
         'question': user_input,
-        "format_instructions": parser.get_format_instructions()
+        # "format_instructions": parser.get_format_instructions()
     })
 
     return response.answer, response.confidence
