@@ -50,17 +50,21 @@ Chatbot/
 ## 🛠️ Requirements
 
 ---
+
 - Python **3.10 or 3.11** (recommended)
 - Groq API Key
 
 ### Python Libraries
+
 - streamlit
 - langchain
 - langchain-core
 - langchain-groq
 - pydantic
 - python-dotenv
+
 ---
+
 ## ⚙️ Installation
 
 ### 1️⃣ Create a virtual environment
@@ -89,6 +93,8 @@ Create a `.env` file in the project root:
 <pre class="overflow-visible! px-0!" data-start="1938" data-end="1970"><div class="w-full"><div class=""><div class=""><div class="min-h-0 min-w-0"><div class="border-token-border-light bg-token-bg-elevated-secondary corner-superellipse/1.1 rounded-3xl border my-4"><div class="pointer-events-none sticky z-40 shrink-0 mx-4 transition-opacity duration-300 opacity-0"><div class="sticky bg-token-border-light"></div></div><div class="relative z-0 flex max-w-full"><div id="b2a93627-99ab-4702-be44-5a8316517f0e:4:editor" class="Rx43rG_codemirror z-10 flex h-full w-full flex-col items-stretch"><div class="cm-editor ͼ1 ͼ2 ͼd ͼy"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="false" class="cm-content" role="textbox" aria-multiline="true" aria-readonly="true" aria-label="Edit code" data-language="shell" aria-placeholder=""><div class="cm-line">streamlit run app.py</div></div></div></div></div></div></div></div></div></div></div></pre>
 
 The app will open in your browser.
+
+The app is also available at []
 
 ---
 
